@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
@@ -19,10 +19,15 @@
     <button id="logout">Logout</button>
     <main>
         <h1>Timer</h1>
+        <h2 id="current-exercise"></h2>
         <div id="timer-div">
-            <h1 id="timer">00:00</h1>
         </div>
+        <h1 id="timer">00:00</h1>
         <button id="start">START</button>
+
+        <h1>REFACTORED</h1>
+        <h1 id="timer2">00:00</h1>
+        <button id="start2">START</button>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>

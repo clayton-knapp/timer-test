@@ -23,3 +23,17 @@ Additional considerations:
   - What needs to live in a persistence layer?
 - Is there some state we need to initialize?
 - Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+
+
+
+- You have an array of durations
+- You want to run through the countdown timer fully, until it is 0, for each element in the array, before moving on to the next element
+- You don't necessarily want to mutate the array, so should you copy the value of each one to a countdown timer
+- stick that value in a timer function?
+- how to get for loop to STOP and NOT CONTINUE until the timer function completes?
+- It needs to keep looping though the interval function until a condition is met, (like countdownTime === 0 or timeOut === true)
+- so in the initial for loop it needs to wait? like a do while?
+
+- so first build it without an array?
+
+

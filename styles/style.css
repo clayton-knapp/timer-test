@@ -135,3 +135,7 @@ footer {
     margin: 5px;
     padding: 10px;
 }
+
+button {
+    cursor: pointer;
+}
