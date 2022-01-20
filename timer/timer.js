@@ -30,7 +30,7 @@ const routine = [
         duration: 5
     }
 ];
-console.log(routine[0].duration);
+// console.log(routine[0].duration);
 
 // timerDisplay.textContent = `00:${duration}`;
 
@@ -147,6 +147,7 @@ function intervalAndTimeout(durations, i) {
     }
 
     // RUNS TIMER FOR THAT DURATION - LOOPS FUNC EVERY 1 SEC
+    // let remainingTime = durations[i];
     setInterval(decrementAndDisplayTime, 1000, durations, i);
 
     //SETS TIMEOUT FOR DURATION of i, then increments i, and re-runs function (recursion)
@@ -170,5 +171,72 @@ function decrementAndDisplayTime(durations, i) {
 
             //log the countdown
         console.log('countdown:', durations[i]);
+    }
+}
+
+
+///////////////////////////////////////////////////////////////
+
+
+const timer3Display = document.querySelector('#timer3');
+const start3Button = document.querySelector('#start3');
+
+const durationsExample2 = [3, 4, 5, 6];
+// let i = 0;
+
+start3Button.addEventListener('click', ()=> {
+    timerFunction(durationsExample2);
+});
+
+let timeoutDuration = 0;
+
+function timerFunction(durationsArray){
+
+
+    durationsArray.map((eachDuration, index) => {
+        // calculate timeout duration based on index
+
+        // for first element execute immediately with no timeout
+        if (index === 0) {
+            timeoutDuration = -1;
+        }
+        else if (index > 0) {
+            //then the used time out duration accumulates each time.
+            timeoutDuration += eachDuration;
+        }
+
+        setTimeout(()=>{
+            displayTimeLeft(eachDuration);
+            
+            setInterval(decrementAndDisplayTime2, 1000, durationsArray, index);
+        }, (timeoutDuration * 1000 + 1000));
+        
+        console.log(timeoutDuration);
+
+    });
+
+
+}
+
+
+
+function decrementAndDisplayTime2(durations, i) {
+    if (durations[i] > 0) {
+        //decrement the display time
+        durations[i]--;
+
+        // display new duration
+        displayTimeLeft(durations[i]);
+
+            //log the countdown
+        console.log('countdown:', durations);
+    }
+}
+
+function displayTimeLeft(eachDuration) {
+    if (eachDuration >= 10) {
+        timer3Display.textContent = `00:${eachDuration}`;
+    } else if (eachDuration <= 9) {
+        timer3Display.textContent = `00:0${eachDuration}`;
     }
 }
