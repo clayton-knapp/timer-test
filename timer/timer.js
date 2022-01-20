@@ -128,12 +128,21 @@ function timeoutFunc(array, i) {
 
 const timer2Display = document.querySelector('#timer2');
 const start2Button = document.querySelector('#start2');
+const stop2Button = document.querySelector('#stop2');
 
-const durationsExample = [3, 4, 5, 6, 7];
+const durationsExample = [8, 9, 10];
 // let i = 0;
+
+let timer;
+let waitTime;
 
 start2Button.addEventListener('click', ()=> {
     intervalAndTimeout(durationsExample, i);
+});
+
+stop2Button.addEventListener('click', ()=> {
+    clearInterval(timer);
+    clearTimeout(waitTime);
 });
 
 
@@ -146,12 +155,14 @@ function intervalAndTimeout(durations, i) {
         timer2Display.textContent = `00:0${durations[i]}`;
     }
 
+    console.log('i: ', i);
+
     // RUNS TIMER FOR THAT DURATION - LOOPS FUNC EVERY 1 SEC
     // let remainingTime = durations[i];
-    setInterval(decrementAndDisplayTime, 1000, durations, i);
+    timer = setInterval(decrementAndDisplayTime, 1000, durations, i);
 
     //SETS TIMEOUT FOR DURATION of i, then increments i, and re-runs function (recursion)
-    setTimeout(()=>{
+    waitTime = setTimeout(()=>{
         i++;
         intervalAndTimeout(durations, i); // RECURSION HERE
     }, (durations[i] * 1000) + 1000);
@@ -170,7 +181,7 @@ function decrementAndDisplayTime(durations, i) {
         }
 
             //log the countdown
-        console.log('countdown:', durations[i]);
+        console.log('countdown:', durations);
     }
 }
 
